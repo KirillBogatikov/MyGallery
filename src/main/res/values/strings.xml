@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">MyGallery</string>
+    <string name="app_name">Моя галерея Вконтакте</string>
+    <string name="exit_message_cancelled">Отказ в доступе</string>
+    <string name="exit_message_failed">Ошибка входа</string>
+    <string name="label_exit">Выход</string>
+    <string name="label_login">Войти</string>
 </resources>
