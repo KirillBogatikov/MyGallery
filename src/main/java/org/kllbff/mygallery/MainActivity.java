@@ -16,9 +16,12 @@ import com.vk.sdk.api.VKError;
 
 public class MainActivity extends AppCompatActivity implements VKCallback<VKAccessToken>, DialogInterface.OnClickListener {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        MyGalleryApplication.currentActivity = this;
+
         if(VKSdk.isLoggedIn()) {
             startActivity(new Intent(this, GalleryActivity.class));
         }
