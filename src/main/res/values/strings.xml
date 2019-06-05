@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">Моя галерея Вконтакте</string>
-    <string name="exit_message_cancelled">Отказ в доступе</string>
-    <string name="exit_message_failed">Ошибка входа</string>
+    <string name="text_login_error">При попытке получения доступа к Вашему аккаунту произошла ошибка. Вы можете попробовать еще раз прямо сейчас, либо закрыть приложение и попробовать позже</string>
+    <string name="label_login_error">Ошибка входа</string>
     <string name="label_exit">Выход</string>
     <string name="label_login">Войти</string>
+    <string name="label_try_again">Попробовать ещё раз</string>
 </resources>

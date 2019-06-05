@@ -3,8 +3,10 @@
     <color name="colorPrimary">#59B9FF</color>
     <color name="colorPrimaryDark">#23578C</color>
     <color name="colorAccent">#114172</color>
-    <color name="vkLight">#4D76A1</color>
-    <color name="vkDark">#23578C</color>
+    <!--<color name="vkLight">#4D76A1</color>
+    <color name="vkDark">#23578C</color>-->
+    <color name="vkLight">#23578C</color>
+    <color name="vkDark">#193F66</color>
     <color name="mainBackgroundLight">#BFE4FF</color>
     <color name="mainBackgroundDark">#59B9FF</color>
 </resources>
