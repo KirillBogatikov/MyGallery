@@ -1,4 +1,4 @@
-package org.kllbff.mygallery.org.kllbff.mygallery.animations;
+package org.kllbff.mygallery.animations;
 
 import android.view.View;
 import android.view.animation.AlphaAnimation;
