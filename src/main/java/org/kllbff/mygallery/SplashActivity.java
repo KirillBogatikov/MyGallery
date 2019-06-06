@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 
@@ -14,8 +15,11 @@ import com.vk.sdk.VKCallback;
 import com.vk.sdk.VKSdk;
 import com.vk.sdk.api.VKError;
 
-import org.kllbff.mygallery.org.kllbff.mygallery.animations.HideAnimation;
-import org.kllbff.mygallery.org.kllbff.mygallery.animations.ShowAnimation;
+import org.kllbff.mygallery.animations.HideAnimation;
+import org.kllbff.mygallery.animations.ShowAnimation;
+import org.kllbff.mygallery.photos.Album;
+import org.kllbff.mygallery.photos.LoadingThread;
+import org.kllbff.mygallery.photos.PhotoDownloader;
 
 import static com.vk.sdk.api.VKError.VK_CANCELED;
 
@@ -33,7 +37,24 @@ public class SplashActivity extends AppCompatActivity implements VKCallback<VKAc
         loadingZone = findViewById(R.id.loading_zone);
 
         if(VKSdk.isLoggedIn()) {
-            //preload
+            LoadingThread.getHandler().post(new Runnable() {
+                @Override
+                public void run() {
+                    PhotoDownloader dl = PhotoDownloader.getInstance();
+                    try {
+                        Album[] albums = dl.loadAlbums();
+                        Log.i("SplashActivity", "Albums loaded (" + albums.length + ")");
+                        Album album = albums[2];
+                        dl.downloadAlbum(album, -1);
+                        Log.i("SplashActivity", "Downloaded 33 photos for " + album.getName());
+                        Intent intent = new Intent(SplashActivity.this, GalleryActivity.class);
+                        intent.putExtra("targetAlbumId", album.getId());
+                        startActivity(intent);
+                    } catch (Exception e) {
+                        Log.e("SplashActivity", "Failed", e);
+                    }
+                }
+            });
         } else {
             loginZone.startAnimation(new ShowAnimation(loginZone));
             loadingZone.startAnimation(new HideAnimation(loadingZone));
