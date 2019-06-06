@@ -4,5 +4,7 @@
     <string name="label_login_error">Ошибка входа</string>
     <string name="label_exit">Выход</string>
     <string name="label_login">Войти</string>
+    <string name="label_select_album">Выберите альбом</string>
     <string name="label_try_again">Попробовать ещё раз</string>
+
 </resources>
