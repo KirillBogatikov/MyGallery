@@ -8,17 +8,27 @@ import java.io.Serializable;
 
 public class Album implements Serializable {
     private Bitmap[] photos;
-    private Bitmap cover;
     private String id;
     private int offset;
     private String name;
 
-    public Album(String name, String id, int size, Bitmap cover) throws JSONException {
+    public Album(String name, String id, int size) {
         this.name = name;
         this.id = id;
         this.photos = new Bitmap[size];
-        this.cover = cover;
         this.offset = 0;
+    }
+
+    public void recycle() {
+        for(Bitmap bmp : photos) {
+            if(bmp != null) {
+                bmp.recycle();
+            }
+        }
+        int size = getSize();
+        photos = null;
+        System.gc();
+        photos = new Bitmap[size];
     }
 
     public String getId() {
@@ -41,15 +51,7 @@ public class Album implements Serializable {
         return photos[index];
     }
 
-    public void addPhoto(Bitmap photo) {
+    public synchronized void addPhoto(Bitmap photo) {
         photos[offset++] = photo;
-    }
-
-    public Bitmap getCover() {
-        return cover;
-    }
-
-    public String toString() {
-        return name + " (" + photos.length + " фото)";
     }
 }

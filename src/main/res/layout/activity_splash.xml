@@ -4,95 +4,81 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/main_activity_background"
     tools:context=".SplashActivity">
+
+    <ImageView
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/icon"
+        android:id="@+id/icon"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:gravity="center"
-        android:layout_marginTop="50dp"
-        android:textSize="35sp"
+        android:layout_marginTop="175dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
+        android:gravity="center"
+        android:textSize="30sp"
         android:textColor="@color/colorAccent"
         android:shadowDx="1"
         android:shadowDy="1"
         android:shadowRadius="3"
-        android:shadowColor="@color/colorPrimary"/>
+        android:shadowColor="@color/colorPrimary"
+        android:text="@string/app_name"/>
 
-    <LinearLayout
+    <ProgressBar
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        android:indeterminate="true"
+        android:indeterminateDrawable="@drawable/progress_bar"
+        android:id="@+id/loading_bar"/>
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="75dp"
-        android:layout_marginRight="75dp"
-        android:layout_marginBottom="150dp"
         android:layout_alignParentBottom="true"
-        android:visibility="invisible"
-        android:id="@+id/login_zone"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Требуется вход в аккаунт"
-            android:paddingBottom="25dp"
-            android:gravity="center"
-            android:textSize="20sp"
-            android:textColor="@color/colorAccent"/>
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/vk_button_background"
-            android:textColor="#FFFFFF"
-            android:drawableStart="@drawable/vk"
-            android:onClick="onLoginButtonClick"
-            android:text="@string/label_login"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="75dp"
-        android:layout_marginRight="75dp"
-        android:layout_marginBottom="150dp"
-        android:layout_alignParentBottom="true"
-        android:visibility="visible"
-        android:orientation="vertical"
-        android:id="@+id/loading_zone">
-
-        <ProgressBar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:indeterminate="true"
-            android:indeterminateDrawable="@drawable/progress_bar"
-            android:visibility="visible"
-            android:id="@+id/loading_bar"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Загрузка..."
-            android:gravity="center"
-            android:textSize="20sp"
-            android:textColor="@color/colorAccent"
-            android:id="@+id/loading_info"/>
-
-    </LinearLayout>
+        android:layout_marginBottom="175dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@color/colorAccent"
+        android:text="@string/label_preparing"
+        android:id="@+id/message"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="75dp"
-        android:layout_marginRight="75dp"
-        android:layout_marginBottom="75dp"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/vk_button_background"
-        android:textColor="#ffffff"
-        android:onClick="onExitButtonClick"
-        android:text="@string/label_exit"/>
+        android:layout_marginBottom="100dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/button_background"
+        android:textColor="@color/textColor"
+        android:drawableStart="@drawable/vk"
+        android:text="@string/label_login"
+        android:id="@+id/vk_login"
+        android:onClick="onClick"
+        android:visibility="gone"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="100dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/button_background"
+        android:textColor="@color/textColor"
+        android:text="@string/label_try_again"
+        android:id="@+id/try_connect"
+        android:onClick="onClick"
+        android:visibility="gone"/>
 
 </RelativeLayout>
