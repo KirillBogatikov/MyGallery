@@ -1,11 +1,6 @@
 package org.kllbff.mygallery;
 
-import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.Matrix;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
@@ -45,7 +40,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.MyViewHo
 
     @Override
     public int getItemCount() {
-        return album.getOffset();
+        return album.getCount();
     }
 
     @Override

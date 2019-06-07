@@ -103,7 +103,7 @@ public class VkPhotos {
         Log.i("VkPhotos", "Loading album");
         ArrayList<Future<Bitmap>> array = new ArrayList<>();
 
-        VKRequest request = new VKRequest("photos.get", VKParameters.from(VKApiConst.ALBUM_ID, current.getId(), VKApiConst.OFFSET, current.getOffset(), VKApiConst.COUNT, 25));
+        VKRequest request = new VKRequest("photos.get", VKParameters.from(VKApiConst.ALBUM_ID, current.getId(), VKApiConst.OFFSET, current.getCount(), VKApiConst.COUNT, 25));
         request.executeSyncWithListener(null);
         VKResponse response = request.response.get();
         JSONArray items = response.json.getJSONObject("response").getJSONArray("items");

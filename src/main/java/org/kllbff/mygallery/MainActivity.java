@@ -2,13 +2,9 @@ package org.kllbff.mygallery;
 
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
 import android.os.Handler;
 import android.util.Log;
 import android.view.SubMenu;
-import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.core.view.GravityCompat;
@@ -19,10 +15,7 @@ import android.view.MenuItem;
 import com.google.android.material.navigation.NavigationView;
 import com.vk.sdk.VKSdk;
 import com.vk.sdk.api.VKApi;
-import com.vk.sdk.api.VKApiConst;
-import com.vk.sdk.api.VKParameters;
 import com.vk.sdk.api.VKRequest;
-import com.vk.sdk.api.VKResponse;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -87,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                     super.onScrolled(recyclerView, dx, dy);
 
-                    if(firstLaunch || (dy < recyclerView.getHeight() * 2 / 3 && album.getOffset() == album.getSize())) {
+                    if(firstLaunch || (dy < recyclerView.getHeight() * 2 / 3 && album.getCount() == album.getSize())) {
                         firstLaunch = false;
                         return;
                     }
@@ -119,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void updateTitle() {
-        setTitle(album.getName() + " " + album.getOffset() + "/" + album.getSize());
+        setTitle(album.getName() + " " + album.getCount() + "/" + album.getSize());
     }
 
     private void loadUserName() {
