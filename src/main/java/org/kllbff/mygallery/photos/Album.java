@@ -1,57 +1,107 @@
 package org.kllbff.mygallery.photos;
 
 import android.graphics.Bitmap;
-
-import org.json.JSONException;
-
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+/**
+ * Упрощенная модель альбома фотографий пользователя Вконтакте
+ *
+ * Содержит необходимые для использования в данном приложении характеристики:
+ * <ul>
+ *     <li>id - уникальный идентификатор альбома;</li>
+ *     <li>size - кол-во фотографий в альбоме на сервере;</li>
+ *     <li>count - кол-во загруженных на устройство фотографий;</li>
+ *     <li>name - имя альбома.</li>
+ * </ul>
+ * Также класс содержит коллекцию экземпляров {@link Bitmap}, представляющих загруженные изображения
+ */
 public class Album implements Serializable {
-    private Bitmap[] photos;
+    private List<Bitmap> photos;
     private String id;
-    private int offset;
+    private int count;
+    private int size;
     private String name;
 
+    /**
+     * Инициализирует объект полученными данными
+     *
+     * @param name имя альбома
+     * @param id уникальный идентификатор альбома
+     * @param size количество фотографий в альбоме на сервере
+     */
     public Album(String name, String id, int size) {
         this.name = name;
         this.id = id;
-        this.photos = new Bitmap[size];
-        this.offset = 0;
+        this.size = size;
+        this.photos = new ArrayList<Bitmap>();
+        this.count = 0;
     }
 
+    /**
+     * Позволяет высвободить оперативную память, занимаемую данными альбома
+     */
     public void recycle() {
         for(Bitmap bmp : photos) {
             if(bmp != null) {
                 bmp.recycle();
             }
         }
-        int size = getSize();
-        photos = null;
+        photos.clear();
         System.gc();
-        photos = new Bitmap[size];
     }
 
+    /**
+     * Возвращает уникальный идентификатор альбома на сервере
+     * @return уникальный идентификатор
+     */
     public String getId() {
         return id;
     }
 
+    /**
+     * Возвращает имя альбома
+     * @return имя альбома
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Возвращает количество фото в альбоме на сервере
+     *
+     * @return количество фото в альбоме на сервере
+     */
     public int getSize() {
-        return photos.length;
+        return photos.size();
     }
 
-    public int getOffset() {
-        return offset;
+    /**
+     * Возвращает количество загруженных на устройство фото из этого альбома
+     *
+     * @return количество загруженных на устройство фото из этого альбома
+     */
+    public int getCount() {
+        return count;
     }
 
+    /**
+     * Вовзращает фото по заданному индексу
+     *
+     * @param index индекс фото в списке, начиная с 0 и до значения {@link #getSize()}
+     * @return фото по заданному индексу
+     */
     public Bitmap getPhoto(int index) {
-        return photos[index];
+        return photos.get(index);
     }
 
+    /**
+     * Добавляет в список новое загруженное фото
+     *
+     * @param photo загруженное на устройство фото
+     */
     public synchronized void addPhoto(Bitmap photo) {
-        photos[offset++] = photo;
+        photos.add(photo);
     }
 }

@@ -15,10 +15,24 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.Callable;
 
+/**
+ * Позволяет выполнить загрузку фотографии с сервера в папку кэша приложения
+ * <p>Использование интерфейса {@link Callable<Bitmap>} необходимо для запуска одновременной загрузки
+ *    нескольких фото в пуле потоков</p>
+ *
+ * @see Callable
+ * @see VkPhotos
+ */
 public class PhotoDownloader implements Callable<Bitmap> {
     private String album, photo;
     private URL url;
 
+    /**
+     * @param url URL-адрес изображения
+     * @param album идентификатор альбома
+     * @param photo идентификатор фото
+     * @throws MalformedURLException в случае некорректного значения <code>url</code>
+     */
     public PhotoDownloader(String url, String album, String photo) throws MalformedURLException {
         this.url = new URL(url);
         this.album = album;
