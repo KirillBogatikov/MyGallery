@@ -1,16 +1,19 @@
 <resources>
-    <string name="app_name">Моя галерея Вконтакте</string>
-    <string name="label_preparing">Подготовка&#8230;</string>
-    <string name="label_no_connection">Отсутствует подключение к Интернет</string>
-    <string name="label_need_login">Необходимо выполнить вход в Ваш аккаунт Вконтакте</string>
-    <string name="text_login_error">При попытке получения доступа к Вашему аккаунту произошла ошибка. Вы можете попробовать еще раз прямо сейчас, либо закрыть приложение и попробовать позже</string>
+    <string name="app_name">My VK Gallery</string>
+    <string name="label_preparing">Preparing&#8230;</string>
+    <string name="label_no_connection">No connection</string>
+    <string name="label_need_login">Need to login into VK account</string>
+    <string name="text_login_error">An error occurred at attempt to login. You can try again right now, or close the app and try again later</string>
 
-    <string name="label_albums">Альбомы</string>
+    <string name="label_albums">Albums</string>
 
-    <string name="label_login_error">Ошибка входа</string>
-    <string name="label_exit">Выход</string>
-    <string name="label_login">Войти</string>
-    <string name="label_select_album">Выберите альбом</string>
-    <string name="label_try_again">Попробовать ещё раз</string>
-    <string name="title_activity_main">Просмотр фото</string>
+    <string name="label_login_error">Login error</string>
+    <string name="label_exit">Exit</string>
+    <string name="label_login">Login</string>
+    <string name="label_select_album">Select album</string>
+    <string name="label_try_again">Try again</string>
+    <string name="title_activity_main">Album content</string>
+
+    <string name="label_clear_cache">Clear cache</string>
+    <string name="label_logout">Logout</string>
 </resources>
