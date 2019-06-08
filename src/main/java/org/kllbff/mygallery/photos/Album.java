@@ -20,7 +20,6 @@ import java.util.List;
 public class Album implements Serializable {
     private List<Bitmap> photos;
     private String id;
-    private int count;
     private int size;
     private String name;
 
@@ -36,7 +35,6 @@ public class Album implements Serializable {
         this.id = id;
         this.size = size;
         this.photos = new ArrayList<Bitmap>();
-        this.count = 0;
     }
 
     /**
@@ -74,7 +72,7 @@ public class Album implements Serializable {
      * @return количество фото в альбоме на сервере
      */
     public int getSize() {
-        return photos.size();
+        return size;
     }
 
     /**
@@ -83,7 +81,7 @@ public class Album implements Serializable {
      * @return количество загруженных на устройство фото из этого альбома
      */
     public int getCount() {
-        return count;
+        return photos.size();
     }
 
     /**

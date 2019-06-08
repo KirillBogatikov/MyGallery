@@ -62,8 +62,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             subMenu.add(album.getName());
         }
 
-        clearCache = menu.add("Очистить кэш");
-        exitVk = menu.add("Выход из аккаунта");
+        clearCache = menu.add(R.string.label_clear_cache);
+        exitVk = menu.add(R.string.label_logout);
         exit = menu.add(R.string.label_exit);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.app_name, R.string.app_name);
