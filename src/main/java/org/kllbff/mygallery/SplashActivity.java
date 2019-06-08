@@ -1,12 +1,9 @@
 package org.kllbff.mygallery;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
-import android.net.Network;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,22 +11,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.vk.sdk.VKAccessToken;
 import com.vk.sdk.VKCallback;
 import com.vk.sdk.VKSdk;
 import com.vk.sdk.api.VKError;
 import com.vk.sdk.api.model.VKScopes;
-import com.vk.sdk.util.VKUtil;
 
 import org.kllbff.mygallery.animations.HideAnimation;
 import org.kllbff.mygallery.animations.ShowAnimation;
-import org.kllbff.mygallery.photos.Album;
 import org.kllbff.mygallery.photos.VkPhotos;
-
-import java.net.InetAddress;
-import java.net.URL;
-import java.net.UnknownHostException;
-import java.util.Arrays;
 
 public class SplashActivity extends AppCompatActivity implements VKCallback<VKAccessToken> {
     private TextView messageView;
@@ -39,6 +31,7 @@ public class SplashActivity extends AppCompatActivity implements VKCallback<VKAc
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
         MyGalleryApplication.currentActivity = this;
 
         messageView = findViewById(R.id.message);
