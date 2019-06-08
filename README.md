@@ -1,8 +1,6 @@
 # MyGallery
-A simple Android application to view your photos from vk.com social network
+Простое приложение для мобильных устройств под управлением ОС Android для просмотра фотографий
+из альбомов своей страницы в социальной сети Вконтакте
 
-![Сообщение об отсутствии соединения с Интернет](/screenshots/1.jpg)
-![Сообщение о необходимости входа](/screenshots/2.jpg)
-![Экран загрузки](/screenshots/3.jpg)
-![Шторка меню](/screenshots/4.jpg)
-![Содержимое альбома](/screenshots/5.jpg)
+Приложение реализовано на языке Java, с использованием библиотек AndroidX и VK API Android SDK,
+а также GSON.
