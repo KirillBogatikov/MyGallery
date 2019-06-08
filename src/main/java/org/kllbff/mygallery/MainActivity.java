@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        MyGalleryApplication.currentActivity = this;
 
         photos = VkPhotos.getInstance();
 
@@ -103,7 +104,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             recycler.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
 
             album = VkPhotos.getInstance().getCurrentAlbum();
-            adapter = new GalleryAdapter(album, 450);
+            adapter = new GalleryAdapter(album);
             recycler.setAdapter(adapter);
             updateTitle();
         } else {
