@@ -78,6 +78,11 @@ public class PhotoDownloader implements Callable<Bitmap> {
             Log.e("VkPhotos", "Failed to close resources", e);
         }
 
-        return BitmapFactory.decodeFile(file.getPath());
+        final BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(file.getPath(), options);
+        options.inSampleSize = options.outWidth / 450;
+        options.inJustDecodeBounds = false;
+        return BitmapFactory.decodeFile(file.getPath(), options);
     }
 }
